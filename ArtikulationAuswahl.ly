@@ -1,0 +1,213 @@
+%gibt Buchstabe aus in `sAbfolgeArtikulationOben`, wählt nächsten Akkord GEWICHTET aus
+
+% Zählt die Anzahl der Iterationen.
+#(define iCounterArtikulationStringOben 0)
+
+%string "xxxxx" wird später überschrieben zu "AECxx" usw.
+#(define sAbfolgeArtikulationOben (make-string iPfade #\x))
+
+% Definiert sind Funktionen wie etwa `FktAbfolgeArtikulationObenD`, die das Zeichen 'x' in `sAbfolgeArtikulationOben` mit 'D' ersetzen, den Zähler erhöhen
+% und dann basierend auf der Gewichtung rekursiv eine andere Funktion aufrufen.
+#(define FktAbfolgeArtikulationObenA
+   (lambda (x)
+     (string-set! sAbfolgeArtikulationOben iCounterArtikulationStringOben #\A)
+     (set! iCounterArtikulationStringOben (+ iCounterArtikulationStringOben 1))
+     (if (< iCounterArtikulationStringOben iPfade)
+         (cond ((> (vector-ref vKumulierterIntervallvektorA 0) x) (FktAbfolgeArtikulationObenA (random (vector-ref vKumulierterIntervallvektorA 5))))
+           ((> (vector-ref vKumulierterIntervallvektorA 1) x) (FktAbfolgeArtikulationObenB (random (vector-ref vKumulierterIntervallvektorB 5))))
+           ((> (vector-ref vKumulierterIntervallvektorA 2) x) (FktAbfolgeArtikulationObenC (random (vector-ref vKumulierterIntervallvektorC 5))))
+           ((> (vector-ref vKumulierterIntervallvektorA 3) x) (FktAbfolgeArtikulationObenD (random (vector-ref vKumulierterIntervallvektorD 5))))
+           ((> (vector-ref vKumulierterIntervallvektorA 4) x) (FktAbfolgeArtikulationObenE (random (vector-ref vKumulierterIntervallvektorE 5))))
+           (else (FktAbfolgeArtikulationObenF (random (vector-ref vKumulierterIntervallvektorF 5))))
+           )
+         )
+     )
+   )
+
+#(define FktAbfolgeArtikulationObenB
+   (lambda (x)
+     (string-set! sAbfolgeArtikulationOben iCounterArtikulationStringOben #\B)
+     (set! iCounterArtikulationStringOben (+ iCounterArtikulationStringOben 1))
+     (if (< iCounterArtikulationStringOben iPfade)
+         (cond ((> (vector-ref vKumulierterIntervallvektorB 0) x) (FktAbfolgeArtikulationObenA (random (vector-ref vKumulierterIntervallvektorA 5))))
+           ((> (vector-ref vKumulierterIntervallvektorB 1) x) (FktAbfolgeArtikulationObenB (random (vector-ref vKumulierterIntervallvektorB 5))))
+           ((> (vector-ref vKumulierterIntervallvektorB 2) x) (FktAbfolgeArtikulationObenC (random (vector-ref vKumulierterIntervallvektorC 5))))
+           ((> (vector-ref vKumulierterIntervallvektorB 3) x) (FktAbfolgeArtikulationObenD (random (vector-ref vKumulierterIntervallvektorD 5))))
+           ((> (vector-ref vKumulierterIntervallvektorB 4) x) (FktAbfolgeArtikulationObenE (random (vector-ref vKumulierterIntervallvektorE 5))))
+           (else (FktAbfolgeArtikulationObenF (random (vector-ref vKumulierterIntervallvektorF 5))))
+           )
+         )
+     )
+   )
+
+#(define FktAbfolgeArtikulationObenC
+   (lambda (x)
+     (string-set! sAbfolgeArtikulationOben iCounterArtikulationStringOben #\C)
+     (set! iCounterArtikulationStringOben (+ iCounterArtikulationStringOben 1))
+     (if (< iCounterArtikulationStringOben iPfade)
+         (cond ((> (vector-ref vKumulierterIntervallvektorC 0) x) (FktAbfolgeArtikulationObenA (random (vector-ref vKumulierterIntervallvektorA 5))))
+           ((> (vector-ref vKumulierterIntervallvektorC 1) x) (FktAbfolgeArtikulationObenB (random (vector-ref vKumulierterIntervallvektorB 5))))
+           ((> (vector-ref vKumulierterIntervallvektorC 2) x) (FktAbfolgeArtikulationObenC (random (vector-ref vKumulierterIntervallvektorC 5))))
+           ((> (vector-ref vKumulierterIntervallvektorC 3) x) (FktAbfolgeArtikulationObenD (random (vector-ref vKumulierterIntervallvektorD 5))))
+           ((> (vector-ref vKumulierterIntervallvektorC 4) x) (FktAbfolgeArtikulationObenE (random (vector-ref vKumulierterIntervallvektorE 5))))
+           (else (FktAbfolgeArtikulationObenF (random (vector-ref vKumulierterIntervallvektorF 5))))
+           )
+         )
+     )
+   )
+
+#(define FktAbfolgeArtikulationObenD
+   (lambda (x)
+     (string-set! sAbfolgeArtikulationOben iCounterArtikulationStringOben #\D)
+     (set! iCounterArtikulationStringOben (+ iCounterArtikulationStringOben 1))
+     (if (< iCounterArtikulationStringOben iPfade)
+         (cond ((> (vector-ref vKumulierterIntervallvektorD 0) x) (FktAbfolgeArtikulationObenA (random (vector-ref vKumulierterIntervallvektorA 5))))
+           ((> (vector-ref vKumulierterIntervallvektorD 1) x) (FktAbfolgeArtikulationObenB (random (vector-ref vKumulierterIntervallvektorB 5))))
+           ((> (vector-ref vKumulierterIntervallvektorD 2) x) (FktAbfolgeArtikulationObenC (random (vector-ref vKumulierterIntervallvektorC 5))))
+           ((> (vector-ref vKumulierterIntervallvektorD 3) x) (FktAbfolgeArtikulationObenD (random (vector-ref vKumulierterIntervallvektorD 5))))
+           ((> (vector-ref vKumulierterIntervallvektorD 4) x) (FktAbfolgeArtikulationObenE (random (vector-ref vKumulierterIntervallvektorE 5))))
+           (else (FktAbfolgeArtikulationObenF (random (vector-ref vKumulierterIntervallvektorF 5))))
+           )
+         )
+     )
+   )
+
+#(define FktAbfolgeArtikulationObenE
+   (lambda (x)
+     (string-set! sAbfolgeArtikulationOben iCounterArtikulationStringOben #\E)
+     (set! iCounterArtikulationStringOben (+ iCounterArtikulationStringOben 1))
+     (if (< iCounterArtikulationStringOben iPfade)
+         (cond ((> (vector-ref vKumulierterIntervallvektorE 0) x) (FktAbfolgeArtikulationObenA (random (vector-ref vKumulierterIntervallvektorA 5))))
+           ((> (vector-ref vKumulierterIntervallvektorE 1) x) (FktAbfolgeArtikulationObenB (random (vector-ref vKumulierterIntervallvektorB 5))))
+           ((> (vector-ref vKumulierterIntervallvektorE 2) x) (FktAbfolgeArtikulationObenC (random (vector-ref vKumulierterIntervallvektorC 5))))
+           ((> (vector-ref vKumulierterIntervallvektorE 3) x) (FktAbfolgeArtikulationObenD (random (vector-ref vKumulierterIntervallvektorD 5))))
+           ((> (vector-ref vKumulierterIntervallvektorE 4) x) (FktAbfolgeArtikulationObenE (random (vector-ref vKumulierterIntervallvektorE 5))))
+           (else (FktAbfolgeArtikulationObenF (random (vector-ref vKumulierterIntervallvektorF 5))))
+           )
+         )
+     )
+   )
+
+#(define FktAbfolgeArtikulationObenF
+   (lambda (x)
+     (string-set! sAbfolgeArtikulationOben iCounterArtikulationStringOben #\F)
+     (set! iCounterArtikulationStringOben (+ iCounterArtikulationStringOben 1))
+     (if (< iCounterArtikulationStringOben iPfade)
+         (cond ((> (vector-ref vKumulierterIntervallvektorF 0) x) (FktAbfolgeArtikulationObenA (random (vector-ref vKumulierterIntervallvektorA 5))))
+           ((> (vector-ref vKumulierterIntervallvektorF 1) x) (FktAbfolgeArtikulationObenB (random (vector-ref vKumulierterIntervallvektorB 5))))
+           ((> (vector-ref vKumulierterIntervallvektorF 2) x) (FktAbfolgeArtikulationObenC (random (vector-ref vKumulierterIntervallvektorC 5))))
+           ((> (vector-ref vKumulierterIntervallvektorF 3) x) (FktAbfolgeArtikulationObenD (random (vector-ref vKumulierterIntervallvektorD 5))))
+           ((> (vector-ref vKumulierterIntervallvektorF 4) x) (FktAbfolgeArtikulationObenE (random (vector-ref vKumulierterIntervallvektorE 5))))
+           (else (FktAbfolgeArtikulationObenF (random (vector-ref vKumulierterIntervallvektorF 5))))
+           )
+         )
+     )
+   )
+
+% Das gleiche für Unten
+
+%gibt Buchstabe aus in sAbfolgeArtikulationUnten, wählt nächsten Akkord GEWICHTET aus
+
+% Zählt die Anzahl der Iterationen.
+#(define iCounterArtikulationStringUnten 0)
+
+%string "xxxxx" wird später überschrieben zu "AECxx" usw.
+#(define sAbfolgeArtikulationUnten (make-string iPfade #\x))
+
+% Definiert sind Funktionen wie etwa FktAbfolgeArtikulationUntenD, die das Zeichen 'x' in sAbfolgeArtikulationUnten mit 'D' ersetzen, den Zähler erhöhen
+% und dann basierend auf der Gewichtung rekursiv eine andere Funktion aufrufen.
+#(define FktAbfolgeArtikulationUntenA
+   (lambda (x)
+     (string-set! sAbfolgeArtikulationUnten iCounterArtikulationStringUnten #\A)
+     (set! iCounterArtikulationStringUnten (+ iCounterArtikulationStringUnten 1))
+     (if (< iCounterArtikulationStringUnten iPfade)
+         (cond ((> (vector-ref vKumulierterIntervallvektorA 0) x) (FktAbfolgeArtikulationUntenA (random (vector-ref vKumulierterIntervallvektorA 5))))
+           ((> (vector-ref vKumulierterIntervallvektorA 1) x) (FktAbfolgeArtikulationUntenB (random (vector-ref vKumulierterIntervallvektorB 5))))
+           ((> (vector-ref vKumulierterIntervallvektorA 2) x) (FktAbfolgeArtikulationUntenC (random (vector-ref vKumulierterIntervallvektorC 5))))
+           ((> (vector-ref vKumulierterIntervallvektorA 3) x) (FktAbfolgeArtikulationUntenD (random (vector-ref vKumulierterIntervallvektorD 5))))
+           ((> (vector-ref vKumulierterIntervallvektorA 4) x) (FktAbfolgeArtikulationUntenE (random (vector-ref vKumulierterIntervallvektorE 5))))
+           (else (FktAbfolgeArtikulationUntenF (random (vector-ref vKumulierterIntervallvektorF 5))))
+           )
+         )
+     )
+   )
+
+#(define FktAbfolgeArtikulationUntenB
+   (lambda (x)
+     (string-set! sAbfolgeArtikulationUnten iCounterArtikulationStringUnten #\B)
+     (set! iCounterArtikulationStringUnten (+ iCounterArtikulationStringUnten 1))
+     (if (< iCounterArtikulationStringUnten iPfade)
+         (cond ((> (vector-ref vKumulierterIntervallvektorB 0) x) (FktAbfolgeArtikulationUntenA (random (vector-ref vKumulierterIntervallvektorA 5))))
+           ((> (vector-ref vKumulierterIntervallvektorB 1) x) (FktAbfolgeArtikulationUntenB (random (vector-ref vKumulierterIntervallvektorB 5))))
+           ((> (vector-ref vKumulierterIntervallvektorB 2) x) (FktAbfolgeArtikulationUntenC (random (vector-ref vKumulierterIntervallvektorC 5))))
+           ((> (vector-ref vKumulierterIntervallvektorB 3) x) (FktAbfolgeArtikulationUntenD (random (vector-ref vKumulierterIntervallvektorD 5))))
+           ((> (vector-ref vKumulierterIntervallvektorB 4) x) (FktAbfolgeArtikulationUntenE (random (vector-ref vKumulierterIntervallvektorE 5))))
+           (else (FktAbfolgeArtikulationUntenF (random (vector-ref vKumulierterIntervallvektorF 5))))
+           )
+         )
+     )
+   )
+
+#(define FktAbfolgeArtikulationUntenC
+   (lambda (x)
+     (string-set! sAbfolgeArtikulationUnten iCounterArtikulationStringUnten #\C)
+     (set! iCounterArtikulationStringUnten (+ iCounterArtikulationStringUnten 1))
+     (if (< iCounterArtikulationStringUnten iPfade)
+         (cond ((> (vector-ref vKumulierterIntervallvektorC 0) x) (FktAbfolgeArtikulationUntenA (random (vector-ref vKumulierterIntervallvektorA 5))))
+           ((> (vector-ref vKumulierterIntervallvektorC 1) x) (FktAbfolgeArtikulationUntenB (random (vector-ref vKumulierterIntervallvektorB 5))))
+           ((> (vector-ref vKumulierterIntervallvektorC 2) x) (FktAbfolgeArtikulationUntenC (random (vector-ref vKumulierterIntervallvektorC 5))))
+           ((> (vector-ref vKumulierterIntervallvektorC 3) x) (FktAbfolgeArtikulationUntenD (random (vector-ref vKumulierterIntervallvektorD 5))))
+           ((> (vector-ref vKumulierterIntervallvektorC 4) x) (FktAbfolgeArtikulationUntenE (random (vector-ref vKumulierterIntervallvektorE 5))))
+           (else (FktAbfolgeArtikulationUntenF (random (vector-ref vKumulierterIntervallvektorF 5))))
+           )
+         )
+     )
+   )
+
+#(define FktAbfolgeArtikulationUntenD
+   (lambda (x)
+     (string-set! sAbfolgeArtikulationUnten iCounterArtikulationStringUnten #\D)
+     (set! iCounterArtikulationStringUnten (+ iCounterArtikulationStringUnten 1))
+     (if (< iCounterArtikulationStringUnten iPfade)
+         (cond ((> (vector-ref vKumulierterIntervallvektorD 0) x) (FktAbfolgeArtikulationUntenA (random (vector-ref vKumulierterIntervallvektorA 5))))
+           ((> (vector-ref vKumulierterIntervallvektorD 1) x) (FktAbfolgeArtikulationUntenB (random (vector-ref vKumulierterIntervallvektorB 5))))
+           ((> (vector-ref vKumulierterIntervallvektorD 2) x) (FktAbfolgeArtikulationUntenC (random (vector-ref vKumulierterIntervallvektorC 5))))
+           ((> (vector-ref vKumulierterIntervallvektorD 3) x) (FktAbfolgeArtikulationUntenD (random (vector-ref vKumulierterIntervallvektorD 5))))
+           ((> (vector-ref vKumulierterIntervallvektorD 4) x) (FktAbfolgeArtikulationUntenE (random (vector-ref vKumulierterIntervallvektorE 5))))
+           (else (FktAbfolgeArtikulationUntenF (random (vector-ref vKumulierterIntervallvektorF 5))))
+           )
+         )
+     )
+   )
+
+#(define FktAbfolgeArtikulationUntenE
+   (lambda (x)
+     (string-set! sAbfolgeArtikulationUnten iCounterArtikulationStringUnten #\E)
+     (set! iCounterArtikulationStringUnten (+ iCounterArtikulationStringUnten 1))
+     (if (< iCounterArtikulationStringUnten iPfade)
+         (cond ((> (vector-ref vKumulierterIntervallvektorE 0) x) (FktAbfolgeArtikulationUntenA (random (vector-ref vKumulierterIntervallvektorA 5))))
+           ((> (vector-ref vKumulierterIntervallvektorE 1) x) (FktAbfolgeArtikulationUntenB (random (vector-ref vKumulierterIntervallvektorB 5))))
+           ((> (vector-ref vKumulierterIntervallvektorE 2) x) (FktAbfolgeArtikulationUntenC (random (vector-ref vKumulierterIntervallvektorC 5))))
+           ((> (vector-ref vKumulierterIntervallvektorE 3) x) (FktAbfolgeArtikulationUntenD (random (vector-ref vKumulierterIntervallvektorD 5))))
+           ((> (vector-ref vKumulierterIntervallvektorE 4) x) (FktAbfolgeArtikulationUntenE (random (vector-ref vKumulierterIntervallvektorE 5))))
+           (else (FktAbfolgeArtikulationUntenF (random (vector-ref vKumulierterIntervallvektorF 5))))
+           )
+         )
+     )
+   )
+
+#(define FktAbfolgeArtikulationUntenF
+   (lambda (x)
+     (string-set! sAbfolgeArtikulationUnten iCounterArtikulationStringUnten #\F)
+     (set! iCounterArtikulationStringUnten (+ iCounterArtikulationStringUnten 1))
+     (if (< iCounterArtikulationStringUnten iPfade)
+         (cond ((> (vector-ref vKumulierterIntervallvektorF 0) x) (FktAbfolgeArtikulationUntenA (random (vector-ref vKumulierterIntervallvektorA 5))))
+           ((> (vector-ref vKumulierterIntervallvektorF 1) x) (FktAbfolgeArtikulationUntenB (random (vector-ref vKumulierterIntervallvektorB 5))))
+           ((> (vector-ref vKumulierterIntervallvektorF 2) x) (FktAbfolgeArtikulationUntenC (random (vector-ref vKumulierterIntervallvektorC 5))))
+           ((> (vector-ref vKumulierterIntervallvektorF 3) x) (FktAbfolgeArtikulationUntenD (random (vector-ref vKumulierterIntervallvektorD 5))))
+           ((> (vector-ref vKumulierterIntervallvektorF 4) x) (FktAbfolgeArtikulationUntenE (random (vector-ref vKumulierterIntervallvektorE 5))))
+           (else (FktAbfolgeArtikulationUntenF (random (vector-ref vKumulierterIntervallvektorF 5))))
+           )
+         )
+     )
+   )
